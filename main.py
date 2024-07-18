@@ -24,26 +24,26 @@ CONTAINER_NAME = os.getenv("AZURE_STORAGE_CONTAINER_NAME")
 BLOB_NAME = os.getenv("AZURE_STORAGE_BLOB_NAME")
 
 # Cargar el modelo al iniciar la aplicación
-try:
-    model = load_model_from_blob(CONNECT_STR, CONTAINER_NAME, BLOB_NAME)
-    tokenizer = BertTokenizer.from_pretrained('dccuchile/bert-base-spanish-wwm-uncased')
-except Exception as e:
-    raise RuntimeError(f"Error loading model: {str(e)}")
+#try:
+#    model = load_model_from_blob(CONNECT_STR, CONTAINER_NAME, BLOB_NAME)
+#    tokenizer = BertTokenizer.from_pretrained('dccuchile/bert-base-spanish-wwm-uncased')
+#except Exception as e:
+#    raise RuntimeError(f"Error loading model: {str(e)}")
 
 @app.get('/')
 def hello():
     return {'message':'Hello World'}
 
-@app.post('/predict')
-def predict(request: dict):
-    text = request.get('text')
-    if not text:
-        raise HTTPException(status_code=400, detail="Text field is required")
+#@app.post('/predict')
+#def predict(request: dict):
+    #text = request.get('text')
+    #if not text:
+    #    raise HTTPException(status_code=400, detail="Text field is required")
     
-    encoded_text = tokenizer(text, return_tensors="pt")
+    #encoded_text = tokenizer(text, return_tensors="pt")
     
-    with torch.no_grad():
-        outputs = model(**encoded_text)
-        predicted_class = torch.argmax(outputs.logits).item()
+    #with torch.no_grad():
+    #    outputs = model(**encoded_text)
+    #    predicted_class = torch.argmax(outputs.logits).item()
     
-    return {'prediction': predicted_class}
+    #return {'prediction': predicted_class}
