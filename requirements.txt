@@ -1,0 +1,7 @@
+gunicorn
+uvicorn
+fastapi
+torch
+joblib
+transformers
+azure-storage-blob
