@@ -47,3 +47,7 @@ def hello():
     #    predicted_class = torch.argmax(outputs.logits).item()
     
     #return {'prediction': predicted_class}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)    
