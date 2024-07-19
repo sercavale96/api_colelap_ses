@@ -3,5 +3,5 @@ uvicorn
 fastapi
 torch
 joblib
-transformers
+transformers==4.30.2
 azure-storage-blob
