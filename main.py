@@ -34,19 +34,19 @@ except Exception as e:
 def hello():
     return {'message':'Hello World'}
 
-#@app.post('/predict')
-#def predict(request: dict):
-    #text = request.get('text')
-    #if not text:
-    #    raise HTTPException(status_code=400, detail="Text field is required")
+@app.post('/predict')
+def predict(request: dict):
+    text = request.get('text')
+    if not text:
+        raise HTTPException(status_code=400, detail="Text field is required")
     
-    #encoded_text = tokenizer(text, return_tensors="pt")
+    encoded_text = tokenizer(text, return_tensors="pt")
     
-    #with torch.no_grad():
-    #    outputs = model(**encoded_text)
-    #    predicted_class = torch.argmax(outputs.logits).item()
+    with torch.no_grad():
+        outputs = model(**encoded_text)
+        predicted_class = torch.argmax(outputs.logits).item()
     
-    #return {'prediction': predicted_class}
+    return {'prediction': predicted_class}
 
 #if __name__ == "__main__":
 #    import uvicorn
