@@ -24,11 +24,11 @@ CONTAINER_NAME = os.getenv("AZURE_STORAGE_CONTAINER_NAME")
 BLOB_NAME = os.getenv("AZURE_STORAGE_BLOB_NAME")
 
 # Cargar el modelo al iniciar la aplicación
-try:
-    model = load_model_from_blob(CONNECT_STR, CONTAINER_NAME, BLOB_NAME)
-    tokenizer = BertTokenizer.from_pretrained('dccuchile/bert-base-spanish-wwm-uncased')
-except Exception as e:
-    raise RuntimeError(f"Error loading model: {str(e)}")
+#try:
+#    model = load_model_from_blob(CONNECT_STR, CONTAINER_NAME, BLOB_NAME)
+#    tokenizer = BertTokenizer.from_pretrained('dccuchile/bert-base-spanish-wwm-uncased')
+#except Exception as e:
+#    raise RuntimeError(f"Error loading model: {str(e)}")
 
 @app.get('/')
 def hello():
