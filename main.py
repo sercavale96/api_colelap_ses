@@ -2,9 +2,8 @@ from fastapi import FastAPI, HTTPException
 import torch
 import pickle
 from azure.storage.blob import BlobServiceClient
-import io
 import os
-from transformers import BertTokenizer, BertForSequenceClassification
+from transformers import BertTokenizer
 
 app = FastAPI()
 
@@ -46,8 +45,4 @@ def predict(request: dict):
         outputs = model(**encoded_text)
         predicted_class = torch.argmax(outputs.logits).item()
     
-    return {'prediction': predicted_class}
-
-#if __name__ == "__main__":
-#    import uvicorn
-#    uvicorn.run(app, host="0.0.0.0", port=8000)    
+    return {'prediction': predicted_class}    
