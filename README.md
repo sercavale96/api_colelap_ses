@@ -1,2 +1,2 @@
 # api_colelap_ses
-Api de consumo de modelo de Procesamiento de Lenguaje Natural.
+Api de consumo de modelo de Procesamiento de Lenguaje Natural BERT con Fine Tuning.
